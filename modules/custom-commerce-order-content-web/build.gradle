@@ -1,0 +1,12 @@
+dependencies {
+    compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+    compileOnly group: "com.liferay", name: "com.liferay.object.service"
+
+    compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib"
+    compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib.clay"
+    compileOnly group: "com.liferay", name: "com.liferay.frontend.js.loader.modules.extender.api"
+    compileOnly group: "com.liferay", name: "com.liferay.frontend.js.module.launcher.api"
+    compileOnly group: "com.liferay.commerce", name: "com.liferay.commerce.order.content.web"
+
+    compileOnly project(":modules:custom-commerce-order-portlet")
+}

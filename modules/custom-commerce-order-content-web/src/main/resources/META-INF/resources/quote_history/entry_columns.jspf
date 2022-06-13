@@ -1,0 +1,68 @@
+<%@ page import="java.io.Serializable" %>
+<%@ page import="com.liferay.portlet.documentlibrary.lar.FileEntryUtil" %>
+<%@ page import="com.liferay.portal.kernel.repository.model.FileEntry" %>
+<%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %>
+<%@ page import="com.liferay.commerce.currency.model.CommerceMoneyFactoryUtil" %>
+<%@ page import="com.liferay.commerce.currency.model.CommerceCurrency" %>
+<%@ page import="com.liferay.commerce.currency.service.CommerceCurrencyLocalServiceUtil" %>
+<%@ page import="java.math.BigDecimal" %>
+<%-- Generate assignment view  URL. --%>
+
+<style>
+    .table td a.btn-download {
+        text-decoration: none;
+    }
+</style>
+<%
+    Map<String, Serializable> values = entry.getValues();
+
+    long fileEntryId = Long.valueOf(values.get("fileEntryId").toString());
+
+    FileEntry fileEntry = FileEntryUtil.fetchByPrimaryKey(fileEntryId);
+
+    long commerceCurrencyId = Long.valueOf(values.get("currency").toString());
+    CommerceCurrency commerceCurrency = CommerceCurrencyLocalServiceUtil.getCommerceCurrency(commerceCurrencyId);
+
+    String downloadUrl = String.format("/documents/%d/%d/%s/%s?t=%d&download=true",
+            fileEntry.getRepositoryId(),
+            fileEntry.getFolderId(),
+            fileEntry.getFileName(),
+            fileEntry.getUuid(),
+            fileEntry.getModifiedDate().getTime()
+    );
+%>
+
+<liferay-ui:search-container-column-text
+        name="quoteId"
+        value="<%= values.get("quoteId").toString() %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="units"
+        value="<%= values.get("units").toString() %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="total"
+        value="<%=CommerceMoneyFactoryUtil.create(commerceCurrency, new BigDecimal(values.get("total").toString())).format(themeDisplay.getLocale()) %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="total With Tax"
+        value="<%=CommerceMoneyFactoryUtil.create(commerceCurrency, new BigDecimal(values.get("totalWithTaxAmount").toString())).format(themeDisplay.getLocale()) %>"
+/>
+
+<liferay-ui:search-container-column-date
+        name="createDate"
+        value="<%= entry.getCreateDate() %>"
+/>
+
+<liferay-ui:search-container-column-text
+        name="PDF">
+    <a class="btn btn-secondary btn-download" href="<%=downloadUrl%>" target="_self">
+        <span class="lfr-portal-tooltip" title="<%=fileEntry.getFileName()%>">
+            Download (<%=LanguageUtil.formatStorageSize(fileEntry.getSize(), themeDisplay.getLocale())%>)
+        </span>
+    </a>
+</liferay-ui:search-container-column-text>
+

@@ -1,0 +1,10 @@
+Bundle-Name: Commerce Frontend Taglib Custom
+Bundle-SymbolicName: commerce.frontend.taglib.custom
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.commerce.frontend.taglib.custom
+Provide-Capability:\
+	osgi.extender;\
+		osgi.extender="jsp.taglib";\
+		uri="http://liferay.com/tld/commerce-ui-custom";\
+		version:Version="${Bundle-Version}"
+Web-ContextPath: /commerce-frontend-taglib-custom

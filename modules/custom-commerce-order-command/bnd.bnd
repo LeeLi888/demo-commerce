@@ -1,0 +1,8 @@
+Bundle-Name: custom-commerce-order-command
+Bundle-SymbolicName: custom.commerce.order.command
+Bundle-Version: 1.0.0
+Import-Package:\
+	!com.liferay.object.internal.petra.sql.dsl,\
+    !com.liferay.object.web.internal.object.definitions.display.*,\
+    !com.liferay.object.web.internal.display.context.helper.*,\
+    *

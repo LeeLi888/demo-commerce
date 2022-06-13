@@ -1,0 +1,8 @@
+Bundle-Name: custom-commerce-order-content-web
+Bundle-SymbolicName: custom.commerce.order.content.web
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.commerce.order.content.web;bundle-version="4.0.45"
+Portal-Bundle-Version: 7.4.13
+-sources: true
+Liferay-JS-Submodules-Bridge:\
+	clay-data-set-display\

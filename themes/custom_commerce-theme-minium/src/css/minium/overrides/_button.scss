@@ -1,0 +1,215 @@
+.minium-frame .btn:not(.btn-unstyled),
+.account-selector-dropdown-menu .btn:not(.btn-unstyled) {
+	align-content: center;
+	align-items: center;
+	background: transparent;
+	border-radius: $border-radius;
+	border-width: 2px;
+	display: inline-flex;
+	font-size: 0.9rem;
+	font-weight: $font-weight-semi-bold;
+	justify-content: center;
+	line-height: 1.25;
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+	transition: border-color 0.3s ease-in;
+	white-space: nowrap;
+	z-index: 2;
+
+	&::before {
+		bottom: 0;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: background-color 0.3s ease-in;
+		z-index: -2;
+	}
+
+	&:active,
+	&:focus,
+	&:focus-within {
+		box-shadow: none !important;
+		outline: none !important;
+	}
+
+	&[disabled],
+	.disabled {
+		cursor: not-allowed;
+	}
+
+	&:not([disabled]):not(.disabled):not(.btn-link):hover {
+		background-color: $color-bg-alt;
+	}
+
+	&.btn-primary {
+		background: transparent;
+		border-color: transparent;
+		color: $color-bg;
+
+		&:not([disabled]):not(.disabled) {
+			&::before {
+				background-color: $color-theme;
+			}
+
+			&:hover {
+				border-color: $color-theme-dark;
+
+				&::before {
+					background-color: $color-theme-dark;
+				}
+			}
+
+			&::after {
+				background-color: $color-theme-dark;
+			}
+		}
+
+		&[disabled] {
+			border-color: $color-disabled;
+
+			&::before {
+				background-color: $color-disabled;
+			}
+		}
+	}
+
+	&.btn-secondary {
+		background: transparent;
+		border-color: $color-border;
+
+		&::before {
+			background-color: transparent;
+		}
+
+		&[disabled] {
+			border-color: $color-border;
+
+			&::before {
+				background-color: $color-bg;
+			}
+		}
+	}
+
+	&.btn-success {
+		background: transparent;
+		border-color: $color-mood-good;
+		color: $color-bg;
+
+		&:not([disabled]):not(.disabled) {
+			&::before {
+				background-color: $color-mood-good;
+			}
+
+			&:hover {
+				border-color: darken($color-mood-good, 10%);
+
+				&::before {
+					background-color: darken($color-mood-good, 10%);
+				}
+			}
+
+			&::after {
+				background-color: darken($color-mood-good, 10%);
+			}
+		}
+
+		&[disabled] {
+			border-color: lighten($color-mood-good, 20%);
+
+			&::before {
+				background-color: lighten($color-mood-good, 20%);
+			}
+		}
+	}
+
+	&.btn-danger {
+		background: transparent;
+		border-color: $color-mood-bad;
+		color: $color-bg;
+
+		&:not([disabled]):not(.disabled) {
+			&::before {
+				background-color: $color-mood-bad;
+			}
+
+			&:hover {
+				border-color: darken($color-mood-bad, 10%);
+
+				&::before {
+					background-color: darken($color-mood-bad, 10%);
+				}
+			}
+
+			&::after {
+				background-color: darken($color-mood-bad, 10%);
+			}
+		}
+
+		&[disabled] {
+			border-color: lighten($color-mood-bad, 20%);
+
+			&::before {
+				background-color: lighten($color-mood-bad, 20%);
+			}
+		}
+	}
+
+	&.btn-warning {
+		background: transparent;
+		border-color: $color-mood-warning;
+		color: $color-bg;
+
+		&:not([disabled]):not(.disabled) {
+			&::before {
+				background-color: $color-mood-warning;
+			}
+
+			&:hover {
+				border-color: darken($color-mood-warning, 10%);
+
+				&::before {
+					background-color: darken($color-mood-warning, 10%);
+				}
+			}
+
+			&::after {
+				background-color: darken($color-mood-warning, 10%);
+			}
+		}
+
+		&[disabled] {
+			border-color: lighten($color-mood-warning, 20%);
+
+			&::before {
+				background-color: lighten($color-mood-warning, 20%);
+			}
+		}
+	}
+
+	&.btn-monospaced {
+		border-radius: 8px;
+	}
+
+	&.btn-sm {
+		height: 44px;
+
+		&.btn-monospaced {
+			width: 44px;
+		}
+	}
+
+	&.btn-lg {
+		height: 3.75rem;
+
+		&.btn-monospaced {
+			width: 64px;
+		}
+	}
+
+	&.btn-fixed {
+		min-width: 170px;
+	}
+}

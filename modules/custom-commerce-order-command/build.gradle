@@ -1,0 +1,15 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+
+	compileOnly group: "com.liferay", name: "com.liferay.document.library.opener.google.drive.web", version: "3.0.22"
+	compileOnly group: "com.liferay", name: "com.liferay.adaptive.media.document.library", version: "5.0.10"
+	compileOnly group: "com.liferay", name: "com.liferay.adaptive.media.document.library", version: "5.0.10"
+	compileOnly group: "com.liferay", name: "com.liferay.document.library.service", version: "6.0.48"
+	compileOnly group: "com.liferay.commerce", name: "com.liferay.commerce.report.impl", version: "1.0.8"
+	compileOnly group: "com.liferay.commerce", name: "com.liferay.commerce.service"
+	compileOnly group: "com.liferay", name: "com.liferay.object.service"
+	compileOnly group: "com.liferay", name: "com.liferay.object.web"
+	compileOnly group: "com.liferay", name: "com.liferay.object.rest.impl"
+
+	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.0.3"
+}
